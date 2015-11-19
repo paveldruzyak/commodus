@@ -13,7 +13,7 @@ NEG_ONE_COMMENT = ':-1:'
 
 # Setup our clients
 before do
-  uri = URI.parse(REDIS_URI) 
+  uri = URI.parse(REDIS_URI)
   @redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   @client ||= Octokit::Client.new(:access_token => ACCESS_TOKEN)
 end
@@ -76,8 +76,8 @@ helpers do
       commit_hash,
       'pending',
       {
-        'description' => 'Commodus: Required plus ones (0/' + NEEDED_PLUS_ONES.to_s + ') has yet to be reached.',
-        'context' => 'robinpowered/commodus'
+        'description' => 'Required plus ones (0/' + NEEDED_PLUS_ONES.to_s + ') has yet to be reached.',
+        'context' => 'code review'
       }
     )
     return 200
@@ -153,8 +153,8 @@ helpers do
           current_commit_hash,
           'success',
           {
-            'description' => 'Commodus: Required plus ones (' + plus_ones.to_s + '/' + NEEDED_PLUS_ONES.to_s + ') has been reached!',
-            'context' => 'robinpowered/commodus'
+            'description' => 'Required plus ones (' + plus_ones.to_s + '/' + NEEDED_PLUS_ONES.to_s + ') has been reached!',
+            'context' => 'code review'
           }
         )
       else
@@ -163,8 +163,8 @@ helpers do
           current_commit_hash,
           'pending',
           {
-            'description' => 'Commodus: Required plus ones (' + plus_ones.to_s + '/' + NEEDED_PLUS_ONES.to_s + ') has yet to be reached.',
-            'context' => 'robinpowered/commodus'
+            'description' => 'Required plus ones (' + plus_ones.to_s + '/' + NEEDED_PLUS_ONES.to_s + ') has yet to be reached.',
+            'context' => 'code review'
           }
         )
       end
